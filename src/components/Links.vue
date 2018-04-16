@@ -10,6 +10,7 @@
 				<a target="_blank" href="https://www.facebook.com/profile.php?id=100006795931980"><img draggable="false" src="icons/facebook.png" /></a>
 				<a target="_blank" href="https://twitter.com/dasisyouyu213"><img draggable="false" src="icons/twitter.png" /></a>
 				<a target="_blank" href="https://github.com/dasisyouyu"><img draggable="false" src="icons/github.png" /></a>
+				<a target="_blank" href="https://qiita.com/dasisyouyu"><img draggable="false" src="icons/qiita.png" /></a>
 				<a plain @click="open3" style="cursor: pointer"><img draggable="false" src="icons/thumb-up.png" /></a>
 			</el-col>
 

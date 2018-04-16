@@ -95,7 +95,18 @@
 
   html {
     overscroll-behavior: contain;
+    scroll-behavior:smooth;
   }
+
+  ::selection {
+		background: none;
+		color: #ffffff;
+	}
+
+	::-moz-selection {
+		background: none;
+		color: #ffffff;
+	}
 </style>
 
 <!-- Scoped component css -->
