@@ -17,7 +17,7 @@
 					<span class="content">shota imamoto</span><br />
 					<span class="content">23</span><br />
 					<span class="content">male</span><br />
-					<span class="content">Ichikawa, Chiba</span><br />
+					<span class="content">Chiba</span><br />
 				</p>
 			</el-col>
 
@@ -40,6 +40,7 @@
 				<el-tag type="warning">サカナクション</el-tag>
 				<el-tag type="warning">amazarashi</el-tag>
 				<el-tag type="warning">PUBG</el-tag>
+				<el-tag type="warning">カメラ</el-tag>
 			</el-col>
 		</el-row>
 	</div>
@@ -54,7 +55,7 @@ export default {
     }
   },
 	mounted: function() {
-		this.$emit('childs-event', 'profile', this.posY = this.$el.getBoundingClientRect().top + window.pageYOffset);
+		this.$emit('parent_event', 'profile', this.posY = this.$el.getBoundingClientRect().top + window.pageYOffset);
 	}
 }
 </script>

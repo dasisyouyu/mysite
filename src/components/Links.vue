@@ -30,37 +30,7 @@
 
 				<div id="cards">
 					<el-card :body-style="{ padding: '0px' }">
-						<img draggable="false" src="/images/gokiburi-poker.jpg" class="secret_image">
-						<div style="padding: 14px;">
-							<span>ごきぶりポーカー</span>
-							<div class="bottom clearfix">
-								<el-button type="primary" class="button">購入</el-button>
-							</div>
-						</div>
-					</el-card>
-
-					<el-card :body-style="{ padding: '0px' }">
-						<img draggable="false" src="/images/gokiburi-poker.jpg" class="secret_image">
-						<div style="padding: 14px;">
-							<span>お邪魔者</span>
-							<div class="bottom clearfix">
-								<el-button type="primary" class="button">購入</el-button>
-							</div>
-						</div>
-					</el-card>
-
-					<el-card :body-style="{ padding: '0px' }">
-						<img draggable="false" src="/images/gokiburi-poker.jpg" class="secret_image">
-						<div style="padding: 14px;">
-							<span>エセ芸術家 ニューヨークへ行く</span>
-							<div class="bottom clearfix">
-								<el-button type="primary" class="button">購入</el-button>
-							</div>
-						</div>
-					</el-card>
-
-					<el-card :body-style="{ padding: '0px' }">
-						<img draggable="false" src="/images/gokiburi-poker.jpg" class="secret_image">
+						<img draggable="false" src="/images/zinnrou.png" class="secret_image">
 						<div style="padding: 14px;">
 							<span>ワンナイト人狼</span>
 							<div class="bottom clearfix">
@@ -71,6 +41,36 @@
 
 					<el-card :body-style="{ padding: '0px' }">
 						<img draggable="false" src="/images/gokiburi-poker.jpg" class="secret_image">
+						<div style="padding: 14px;">
+							<span>ごきぶりポーカー</span>
+							<div class="bottom clearfix">
+								<el-button type="primary" class="button">購入</el-button>
+							</div>
+						</div>
+					</el-card>
+
+					<el-card :body-style="{ padding: '0px' }">
+						<img draggable="false" src="/images/ojamamono.jpeg" class="secret_image">
+						<div style="padding: 14px;">
+							<span>お邪魔者</span>
+							<div class="bottom clearfix">
+								<el-button type="primary" class="button">購入</el-button>
+							</div>
+						</div>
+					</el-card>
+
+					<el-card :body-style="{ padding: '0px' }">
+						<img draggable="false" src="/images/esegeijutuka.jpeg" class="secret_image">
+						<div style="padding: 14px;">
+							<span>エセ芸術家 ニューヨークへ行く</span>
+							<div class="bottom clearfix">
+								<el-button type="primary" class="button">購入</el-button>
+							</div>
+						</div>
+					</el-card>
+
+					<el-card :body-style="{ padding: '0px' }">
+						<img draggable="false" src="/images/sasuraba.png" class="secret_image">
 						<div style="padding: 14px;">
 							<span>さすらば汝は恵まれん</span>
 							<div class="bottom clearfix">
@@ -112,7 +112,7 @@
 			}
 		},
 		mounted: function() {
-			this.$emit('childs-event', 'links', this.posY = this.$el.getBoundingClientRect().top + window.pageYOffset);
+			this.$emit('parent_event', 'links', this.posY = this.$el.getBoundingClientRect().top + window.pageYOffset);
 		}
 	}
 </script>

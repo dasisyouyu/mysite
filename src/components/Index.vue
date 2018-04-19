@@ -15,10 +15,10 @@
       </el-col>
     </el-row>
 
-    <Profile class="block profile"/>
-    <Skills class="block skills"/>
-    <Links class="block links"/>
-    <Works class="block works"/>
+    <Profile class="block profile" @parent_event="AddComponentPosY" />
+    <Skills class="block skills" @parent_event="AddComponentPosY" />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+    <Links class="block links" @parent_event="AddComponentPosY" />
+    <Works class="block works" @parent_event="AddComponentPosY" />
   </div>
 </template>
 
@@ -33,39 +33,55 @@
     name: 'Index',
     data() {
       return {
-        active: 0
+        active: 0,
+        positions: {
+          profile:'',
+          skills:'',
+          links:'',
+          works:''
+        }
       };
     },
-    computed: {
-      range: function() {
-        var range = Math.round(100 - (this.posY - this.$window.scrollY) / this.$window.height * 100)
-        return range < 0 ? 0 : range > 100 ? 100 : range
-      }
-    },
     watch: {
-      '$window.height': 'getPosition'
+      '$window.scrollY': 'CurrentActiveStep'
     },
     methods: {
-      getPosition: function() {
-        // コンポーネントの位置
-        this.posY = this.$el.getBoundingClientRect().top + window.pageYOffset
+      scrollY: function () {
+        return this.$window.scrollY;
+      },
+      AddComponentPosY: function(key, positionY){
+        this.positions[key] += positionY;
+      },
+      CurrentActiveStep: function() {
+        Object.keys(this.positions).forEach(function (item){
+          if (this.positions[item] < this.scrollY()){
+            switch (item) {
+              case 'profile':
+                this.active = 0;
+                break;
+              case 'skills':
+                this.active = 1;
+                break;
+              case 'links':
+                this.active = 2;
+                break;
+              case 'works':
+                this.active = 3;
+                break;
+              default:
+                this.active = 0;
+            }
+          }
+        }, this);
       }
     },
-    mounted: function() {
-      this.getPosition();
-    },
-    // component: {
-    //   Profile,
-    //   Skills,
-    //   Links,
-    //   Works
-    // }
+    components: {
+      Profile,
+      Skills,
+      Links,
+      Works
+    }
   }
-  //
-  Vue.component('Profile', Profile)
-  Vue.component('Skills', Skills)
-  Vue.component('Links', Links)
-  Vue.component('Works', Works)
 </script>
 
 <!-- CSS libraries -->
@@ -148,11 +164,11 @@
   }
 
   #step-list {
-    position: absolute;
+    position: fixed;
     text-align: right;
     height: 300px;
-    margin-left: 90%;
-    margin-top: 3%;
+    top: 30px;
+    right: 5%;
     z-index: 500;
   }
 </style>

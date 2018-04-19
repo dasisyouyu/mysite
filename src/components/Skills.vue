@@ -74,7 +74,7 @@
 			}
 		},
 		mounted: function() {
-			this.$emit('childs-event', 'skills', this.posY = this.$el.getBoundingClientRect().top + window.pageYOffset);
+			this.$emit('parent_event', 'skills', this.posY = this.$el.getBoundingClientRect().top + window.pageYOffset);
 		}
 	}
 </script>

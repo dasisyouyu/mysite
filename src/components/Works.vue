@@ -5,6 +5,14 @@
 				<h1>WORKS</h1>
 			</el-col>
 
+			<el-col :span="24">
+				<!-- いい感じに今までのやった仕事書きたい -->
+			</el-col>
+
+			<el-col :span="24">
+				<h1>PHOTO GALLERY</h1>
+			</el-col>
+
 			<el-col :span="20" :offset="2">
 				<el-carousel :interval="10000" type="card" height="350px">
 			    <el-carousel-item v-for="item in 4" :key="item">
@@ -25,7 +33,7 @@
 	    }
 	  },
 		mounted: function() {
-			this.$emit('childs-event', 'works', this.posY = this.$el.getBoundingClientRect().top + window.pageYOffset);
+			this.$emit('parent_event', 'works', this.posY = this.$el.getBoundingClientRect().top + window.pageYOffset);
 		}
 	}
 </script>

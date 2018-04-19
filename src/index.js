@@ -42,21 +42,5 @@ Vue.use(windowStatePlugin);
 new Vue({
   el:'#app',
   router: Routes,
-  data() {
-    return {
-      positions: {
-        profile:'',
-        skills:'',
-        links:'',
-        works:''
-      }
-    };
-  },
-  methods: {
-    parentsMethod: function(key, positionY){
-      positions.key += positionY;
-      console.log("position" + positions);
-    }
-  },
   render: h => h('router-view')
 })
