@@ -5,7 +5,7 @@
     <el-row>
       <el-col :span="24">
         <div id="step-list">
-          <el-steps direction="vertical" :active="active">
+          <el-steps direction="vertical" :active="active" finish-status="success">
             <el-step title="Profile"></el-step>
             <el-step title="Skills"></el-step>
             <el-step title="Links"></el-step>
@@ -16,7 +16,7 @@
     </el-row>
 
     <Profile class="block profile" @parent_event="AddComponentPosY" />
-    <Skills class="block skills" @parent_event="AddComponentPosY" />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+    <Skills class="block skills" @parent_event="AddComponentPosY" />
     <Links class="block links" @parent_event="AddComponentPosY" />
     <Works class="block works" @parent_event="AddComponentPosY" />
   </div>
@@ -54,22 +54,22 @@
       },
       CurrentActiveStep: function() {
         Object.keys(this.positions).forEach(function (item){
-          if (this.positions[item] < this.scrollY()){
+          if (this.positions[item] <= this.scrollY()){
             switch (item) {
               case 'profile':
-                this.active = 0;
-                break;
-              case 'skills':
                 this.active = 1;
                 break;
-              case 'links':
+              case 'skills':
                 this.active = 2;
                 break;
-              case 'works':
+              case 'links':
                 this.active = 3;
                 break;
+              case 'works':
+                this.active = 4;
+                break;
               default:
-                this.active = 0;
+                this.active = 1;
             }
           }
         }, this);
