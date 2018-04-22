@@ -2,7 +2,7 @@
   <div>
     <router-view></router-view>
 
-    <el-row>
+    <el-row class="hidden-xs-only">
       <el-col :span="24">
         <div id="step-list">
           <el-steps direction="vertical" :active="active" finish-status="success">
