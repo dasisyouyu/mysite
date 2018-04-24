@@ -5,20 +5,16 @@
 				<h1>WORKS</h1>
 			</el-col>
 
-			<el-col :span="18" :offset="3">
-				<el-table :data="workData" style="width: 100%" :row-class-name="'workTableStyle'">
-					<el-table-column type="expand">
-						<template slot-scope="props">
-							<p>内容とか感想: {{ props.row.detail }}</p>
-							<p>メンバー: {{ props.row.member }}</p>
-							<p>技術: {{ props.row.tech }}</p>
-						</template>
-					</el-table-column>
-					<el-table-column
-						label="Title"
-						prop="title">
-					</el-table-column>
-				</el-table>
+			<el-col :span="14" :offset="5">
+				<el-collapse v-model="activeName" v-for="item in workData" accordion>
+				  <el-collapse-item v-bind:title="item.title" v-bind:name="item.id">
+						<p class="work-history">
+							<span>{{ item.detail }}</span><br />
+							<span>member: {{ item.member }}</span><br />
+							<span>tech: {{ item.tech }}</span><br />
+						</p>
+				  </el-collapse-item>
+				</el-collapse>
 			</el-col>
 
 			<el-col :span="24">
@@ -41,22 +37,27 @@
 		name: 'Works',
 	  data: function() {
 	    return {
+				activeName: '1',
 				workData: [{
+					id: '1',
 					title: 'unityスマホゲーム作成',
 					detail: '合宿から始まってリリースするまで色々ありました。。。動作確認が一番辛かった。',
 					member: '４名〜',
 					tech: 'unity, C#, Photon'
 				}, {
+					id: '2',
 					title: '某会社HP作成',
 					detail: 'reactやりたいねということでレスポンシブなサイトを１から勉強して専務とデザイナーさん、バイトの方の約４人で作りました。\n当初開発を任せられてどこまで自分のイメージに作っていいのかわからず苦労しました。',
 					member: '４名〜',
 					tech: 'react.js, materializecss'
 				}, {
+					id: '3',
 					title: 'このサイト',
 					detail: '転職をきっかけにポートフォリオとして作成しました。\nvue素晴らしい・・・。',
 					member: 'me',
 					tech: 'vue.js, elementUI'
 				},{
+					id: '4',
 					title: 'pawoo_music_extension',
 					detail: 'https://chrome.google.com/webstore/detail/pawoomusicextension/iljljahpljpmhomafdlbifgbgmaocbic?hl=ja \n pawoo用のchrome拡張機能。全然アップデートしてません。',
 					member: 'me',
@@ -73,7 +74,7 @@
 <style>
 .workTableStyle {
 	background-color: 'red';
-	color: #d7e86a;
+	color: #FFB09F;
 }
 </style>
 
@@ -81,6 +82,10 @@
 	#works-content {
 		text-align: center;
 		width: 100%;
+	}
+
+	.work-history {
+		margin: 0% 5%;
 	}
 
 	.el-carousel__item > img {
