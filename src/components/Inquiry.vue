@@ -6,7 +6,15 @@
 			</el-col>
 
       <el-col :span="8" :offset="8">
-        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm" label-position="top" netlify>
+        <el-form
+				:model="ruleForm"
+				:rules="rules"
+				ref="ruleForm"
+				action=""
+				label-width="120px"
+				class="demo-ruleForm"
+				label-position="top"
+				data-netlify="true">
           <el-form-item label="name" prop="name">
             <el-input v-model="ruleForm.name"></el-input>
           </el-form-item>
