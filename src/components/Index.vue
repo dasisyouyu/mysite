@@ -10,6 +10,7 @@
             <el-step title="Skills"></el-step>
             <el-step title="Links"></el-step>
             <el-step title="Works"></el-step>
+            <el-step title="Inquiry"></el-step>
           </el-steps>
         </div>
       </el-col>
@@ -19,6 +20,7 @@
     <Skills class="block skills" @parent_event="AddComponentPosY" />
     <Links class="block links" @parent_event="AddComponentPosY" />
     <Works class="block works" @parent_event="AddComponentPosY" />
+    <Inquiry class="block inquiry" @parent_event="AddComponentPosY" />
   </div>
 </template>
 
@@ -28,6 +30,7 @@
   import Skills from './Skills'
   import Links from './Links'
   import Works from './Works'
+  import Inquiry from './Inquiry'
 
   export default {
     name: 'Index',
@@ -38,7 +41,8 @@
           profile:'',
           skills:'',
           links:'',
-          works:''
+          works:'',
+          inquiry:''
         }
       };
     },
@@ -68,6 +72,9 @@
               case 'works':
                 this.active = 4;
                 break;
+              case 'inquiry':
+                this.active = 5;
+                break;
               default:
                 this.active = 1;
             }
@@ -79,7 +86,8 @@
       Profile,
       Skills,
       Links,
-      Works
+      Works,
+      Inquiry
     }
   }
 </script>
@@ -163,12 +171,18 @@
     z-index: 400;
   }
 
+  .inquiry {
+    background-color: #2CA057;
+    color: #88D9A6;
+    z-index: 500;
+  }
+
   #step-list {
     position: fixed;
     text-align: right;
     height: 300px;
     top: 30px;
-    right: 5%;
-    z-index: 500;
+    left: 3%;
+    z-index: 9999;
   }
 </style>
