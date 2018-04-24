@@ -6,7 +6,7 @@
 			</el-col>
 
 			<el-col :span="14" :offset="5">
-				<el-collapse v-model="activeName" v-for="item in workData" accordion>
+				<el-collapse v-model="activeName" v-for="item in workData" :key="item.id" accordion>
 				  <el-collapse-item v-bind:title="item.title" v-bind:name="item.id">
 						<p class="work-history">
 							<span>{{ item.detail }}</span><br />
