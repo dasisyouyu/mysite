@@ -10,19 +10,19 @@
 				:model="ruleForm"
 				:rules="rules"
 				ref="ruleForm"
-				action=""
 				label-width="120px"
 				class="demo-ruleForm"
 				label-position="top"
-				data-netlify="true">
+				method="post"
+				netlify>
           <el-form-item label="name" prop="name">
-            <el-input v-model="ruleForm.name"></el-input>
+            <el-input name="name" v-model="ruleForm.name"></el-input>
           </el-form-item>
           <el-form-item label="contact" prop="contact">
-            <el-input v-model="ruleForm.contact"></el-input>
+            <el-input name="contact" v-model="ruleForm.contact"></el-input>
           </el-form-item>
           <el-form-item label="content" prop="desc">
-            <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+            <el-input name="textarea" type="textarea" v-model="ruleForm.desc"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="submitForm('ruleForm')">Send</el-button>
@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 	export default {
 		name: 'Inquiry',
 	  data: function() {
@@ -59,23 +61,45 @@
 	    }
 	  },
     methods: {
-      submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            this.formSuccess();
-          } else {
-            return false;
-          }
-        });
-      },
-      formSuccess() {
-        this.$notify({
-          title: '受け付けました',
-          message: 'thx! contactにメールやSNSなどの連絡手段があれば返信します！',
-          iconClass: 'el-icon-bell'
-        });
-      },
-    },
+      // submitForm(formName) {
+				// let params = new URLSearchParams();
+				// 		params.append('form-name', 'content', ...this.ruleForm);
+
+      //   this.$refs[formName].validate((valid) => {
+      //     if (valid) {
+			// 			axios.post(
+			// 				'/',
+			// 				encode({ 'form-name': 'content', ...this.ruleForm }),
+			// 				{
+			// 					headers: { 'content-type': 'application/x-www-form-urlencoded' }
+			// 				}
+			// 			).then(r => {
+			// 				this.formSuccess();
+			// 			}).catch(e => {
+			// 				this.formError();
+			// 				this.error = true;
+			// 			});
+      //     } else {
+      //       return false;
+      //     }
+      //   });
+      // },
+      // formSuccess() {
+      //   this.$notify({
+      //     title: '受け付けました',
+      //     message: 'thx! contactにメールやSNSなどの連絡手段があれば返信します！',
+      //     iconClass: 'el-icon-success'
+      //   });
+      // },
+			// formError() {
+			// 		this.$notify({
+			// 			title: '送信に失敗しました。',
+			// 			message: '何かしらのエラーが出てますね、、、Twitterなどでメンションを送ってくれ！ @dasisyouyu213',
+			// 			iconClass: 'el-icon-error'
+			// 		});
+			// }
+    // },
+	},
 		mounted: function() {
 			this.$emit('parent_event', 'inquiry', this.posY = this.$el.getBoundingClientRect().top + window.pageYOffset);
 		}

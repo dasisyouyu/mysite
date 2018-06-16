@@ -18,6 +18,7 @@
   },
   "repository": "https://github.com/dasisyouyu/mysite.git",
   "dependencies": {
+    "axios": "^0.18.0",
     "element-ui": "^2.3.3",
     "normalize.css": "^7.0.0",
     "object-assign": "^4.1.1",

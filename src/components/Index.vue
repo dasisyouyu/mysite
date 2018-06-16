@@ -124,12 +124,12 @@
 
   ::selection {
 		background: none;
-		color: #ffffff;
+		color: #e9e9e9;
 	}
 
 	::-moz-selection {
 		background: none;
-		color: #ffffff;
+		color: #e9e9e9;
 	}
 </style>
 
