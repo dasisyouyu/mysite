@@ -6,7 +6,7 @@
 			</el-col>
 
       <el-col :span="8" :offset="8">
-        <el-form
+        <!-- <el-form
 				:model="ruleForm"
 				:rules="rules"
 				ref="ruleForm"
@@ -14,7 +14,7 @@
 				class="demo-ruleForm"
 				label-position="top"
 				method="post"
-				netlify>
+				data-netlify="true">
           <el-form-item label="name" prop="name">
             <el-input name="name" v-model="ruleForm.name"></el-input>
           </el-form-item>
@@ -27,7 +27,27 @@
           <el-form-item>
             <el-button type="primary" @click="submitForm('ruleForm')">Send</el-button>
           </el-form-item>
-        </el-form>
+        </el-form> -->
+
+				<form name="contactform" action="thanks" netlify>
+				  <p>
+				    <label>Your Name: <input type="text" name="name"></label>
+				  </p>
+				  <p>
+				    <label>Your Email: <input type="email" name="email"></label>
+				  </p>
+				  <p>
+				    <label><input type="radio" name="food" value="カレー">カレー</label>
+				    <label><input type="radio" name="food" value="焼肉">焼肉</label>
+				    <label><input type="radio" name="food" value="寿司">寿司</label>
+				  </p>
+				  <p>
+				    <label>Message: <textarea name="message"></textarea></label>
+				  </p>
+				  <p>
+				    <button type="submit">Send</button>
+				  </p>
+				</form>
       </el-col>
 		</el-row>
 	</div>
