@@ -2,22 +2,6 @@
 	<div>
 		<el-row id="works-content">
 			<el-col :span="24">
-				<h1>WORKS</h1>
-			</el-col>
-
-			<el-col :span="14" :offset="5">
-				<el-collapse v-model="activeName" v-for="item in workData" :key="item.id" accordion>
-				  <el-collapse-item v-bind:title="item.title" v-bind:name="item.id">
-						<p class="work-history">
-							<span>{{ item.detail }}</span><br />
-							<span>member: {{ item.member }}</span><br />
-							<span>tech: {{ item.tech }}</span><br />
-						</p>
-				  </el-collapse-item>
-				</el-collapse>
-			</el-col>
-
-			<el-col :span="24">
 				<h1>PHOTO GALLERY</h1>
 			</el-col>
 
